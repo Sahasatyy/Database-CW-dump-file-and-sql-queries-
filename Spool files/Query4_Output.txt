@@ -1,0 +1,9 @@
+SQL> SELECT * FROM product
+  2  INNER JOIN stock ON product.stock_id = stock.stock_id
+  3  WHERE product. product_name LIKE '_a%' AND stock. stock_level >50;
+
+PRODUCT_ID PRODUCT_CATEGORY  CATEGORY_ID PRODUCT_NAME      PRODUCT_DESCRIPTION               UNIT_PRICE  VENDOR_ID   STOCK_ID   STOCK_ID STOCK        
+---------- ----------------- ----------- ----------------- --------------------------------- ---------- ---------- ---------- ---------- -----        
+        55 radio                      15 saregama_pod      Classic Timeless Melodic                8000        205          5          5 77           
+
+SQL> SPOOL OFF;

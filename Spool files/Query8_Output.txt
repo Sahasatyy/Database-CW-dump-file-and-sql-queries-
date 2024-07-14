@@ -1,0 +1,9 @@
+SQL> SELECT v.vendor_id, v. vendor_name, COUNT(p.product_id) AS Counted_products
+  2  FROM vendor v
+  3  Join product p ON v.vendor_id = p. vendor_id
+  4  GROUP BY v. vendor_id, v. vendor_name
+  5  HAVING COUNT(p.product_id)>3;
+
+no rows selected
+
+SQL> SPOOL OFF;

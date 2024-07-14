@@ -1,0 +1,9 @@
+SQL> SELECT * from customer WHERE customer_category = 'staff';
+
+CUSTOMER_ID CUSTOMER_NAME     CUSTOMER_ADDRESS  CUSTOMER_CATEGORY CUSTOMER_PHONE_NO                                                                   
+----------- ----------------- ----------------- ----------------- -----------------                                                                   
+         13 Eirling_Haaland   Biratnagar        staff                    9869364947                                                                   
+         15 Harry_Maguire     Salahi            staff                    9884037884                                                                   
+         18 Leroy_Sane        Pokhara           staff                    9835451458                                                                   
+
+SQL> SPOOL OFF;

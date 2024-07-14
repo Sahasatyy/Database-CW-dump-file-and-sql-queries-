@@ -1,0 +1,21 @@
+SQL> SELECT product_id, product_name, Counted_orders
+  2  FROM( SELECT p.product_id, p.product_name, COUNT(od.product_id) AS Counted_orders,
+  3  RANK() OVER (ORDER BY COUNT(od.product_id) DESC) AS ranks
+  4  FROM product p
+  5  JOIN order_details od ON p.product_id = od.product_id
+  6  GROUP BY p.product_id, p.product_name) WHERE ranks <= 3;
+
+PRODUCT_ID PRODUCT_NAME      COUNTED_ORDERS                                                                                                           
+---------- ----------------- --------------                                                                                                           
+        53 jbl_go2                        1                                                                                                           
+        55 saregama_pod                   1                                                                                                           
+        58 oneplus_buds4                  1                                                                                                           
+        52 applewatch                     1                                                                                                           
+        51 sony_ultrasound3               1                                                                                                           
+        56 Samsung_s23_ultra              1                                                                                                           
+        57 xiuang_rgb_pro                 1                                                                                                           
+        54 acer_nitro_5                   1                                                                                                           
+
+8 rows selected.
+
+SQL> SPOOL OFF;

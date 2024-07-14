@@ -1,0 +1,12 @@
+SQL> SELECT *
+  2  FROM(SELECT c.customer_id, c.customer_name, o.order_date
+  3  FROM customer c
+  4  JOIN orders o ON c.customer_id = o.customer_id
+  5  ORDER BY o.order_date DESC)
+  6  WHERE ROWNUM <= 1;
+
+CUSTOMER_ID CUSTOMER_NAME     ORDER_DATE                                                                                                              
+----------- ----------------- -----------------                                                                                                       
+         12 John_stones       28-APR-23                                                                                                               
+
+SQL> SPOOL OFF;

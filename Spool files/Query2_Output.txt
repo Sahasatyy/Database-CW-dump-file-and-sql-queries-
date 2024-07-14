@@ -1,0 +1,9 @@
+SQL> SELECT * FROM orders WHERE order_date BETWEEN TO_DATE('01-05-2023', 'DD-MM-YYYY') AND TO_DATE('28-05-2023', 'DD-MM-YYYY');
+
+  ORDER_ID ORDER_DATE        PRODUCT_QUANTITY VAT_PERCENT DISCOUNT_PERCENT TOTAL_AMOUNT INVOICE_ID PAYMENT_ID CUSTOMER_ID                             
+---------- ----------------- ---------------- ----------- ---------------- ------------ ---------- ---------- -----------                             
+       103 04-MAY-23                        8          13                5        35080        303         13          13                             
+       104 15-MAY-23                        1          13               10         9070        304         14          14                             
+       105 25-MAY-23                        1          13                5       200805        305         15          15                             
+
+SQL> SPOOL OFF;

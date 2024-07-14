@@ -1,0 +1,18 @@
+SQL> SELECT
+  2  EXTRACT(MONTH FROM TO_DATE(o.order_date, 'DD-MM-YYYY')) AS Month,
+  3  EXTRACT(YEAR FROM TO_DATE(o.order_date, 'DD-MM-YYYY')) AS Year,
+  4  SUM(o.total_amount) AS Total_revenue
+  5  FROM orders o
+  6  JOIN order_details od ON o.order_id = od.order_id
+  7  JOIN product p ON od.product_id = p.product_id
+  8  GROUP BY EXTRACT(YEAR FROM TO_DATE(o.order_date, 'DD-MM-YYYY')), EXTRACT(MONTH FROM TO_DATE(o. order_date, 'DD-MM-YYYY'))
+  9  ORDER BY EXTRACT(YEAR FROM TO_DATE(o. order_date, 'DD-MM-YYYY')), EXTRACT(MONTH FROM TO_DATE(o. order_date, 'DD-MM-YYYY'));
+
+     MONTH       YEAR TOTAL_REVENUE                                                                                                                   
+---------- ---------- -------------                                                                                                                   
+         4         23        167730                                                                                                                   
+         5         23        244955                                                                                                                   
+         7         23          9830                                                                                                                   
+         8         23        195870                                                                                                                   
+
+SQL> SPOOL OFF;

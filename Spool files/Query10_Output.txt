@@ -1,0 +1,15 @@
+SQL> select *
+  2  from (
+  3  SELECT c.customer_id, c.customer_name, SUM(o.total_amount) AS Total_spending
+  4  FROM customer c
+  5  JOIN orders o ON c.customer_id = o.customer_id
+  6  WHERE EXTRACT(MONTH FROM TO_DATE(o.order_date, 'DD-MM-YYYY')) = 8
+  7  GROUP BY c.customer_id, c.customer_name
+  8  ORDER BY Total_spending DESC)
+  9  WHERE ROWNUM <= 1;
+
+CUSTOMER_ID CUSTOMER_NAME     TOTAL_SPENDING                                                                                                          
+----------- ----------------- --------------                                                                                                          
+         18 Leroy_Sane                152930                                                                                                          
+
+SQL> SPOOL OFF;

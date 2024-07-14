@@ -1,0 +1,19 @@
+SQL> SELECT c.customer_name, o.order_id, p.payment_id, p.payment_method, o.total_amount
+  2  FROM customer c
+  3  LEFT JOIN orders o ON c.customer_id = o.customer_id
+  4  LEFT JOIN payment p ON c.customer_id = p. payment_id;
+
+CUSTOMER_NAME       ORDER_ID PAYMENT_ID PAYMENT_METHOD    TOTAL_AMOUNT                                                                                
+----------------- ---------- ---------- ----------------- ------------                                                                                
+Ruben_Dias               101         11 Debit_card               15180                                                                                
+John_stones              102         12 E_Banking               152550                                                                                
+Eirling_Haaland          103         13 E_Banking                35080                                                                                
+Jack_Grealish            104         14 Cash_on_delivery          9070                                                                                
+Harry_Maguire            105         15 Debit_card              200805                                                                                
+Oscar_Bob                106         16 Debit_card                9830                                                                                
+Kevin_Debruyne           107         17 E_Banking                42940                                                                                
+Leroy_Sane               108         18 Cash_on_delivery        152930                                                                                
+
+8 rows selected.
+
+SQL> SPOOL OFF;
